@@ -8,6 +8,9 @@ LOGGING_CONFIG = {
     'formatters': {
         'standard': {
             'format': '%(asctime)s - %(filename)s - %(levelname)s - %(message)s'
+        },
+        'chat': {
+            'format': '%(levelname)s: %(message)s'
         }
     },
     'handlers': {
@@ -19,7 +22,7 @@ LOGGING_CONFIG = {
         },
         'telegram_handler': {
             '()': TelegramHandler,
-            'formatter': 'standard',
+            'formatter': 'chat',
             'level': logging.INFO,
         },
     },
