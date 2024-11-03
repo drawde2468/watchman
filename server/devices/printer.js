@@ -1,6 +1,7 @@
 const Device = require("./device");
 const { getDeviceState } = require("../utils/shelly");
 const parseComparison = require("../utils/comparison");
+const { sendMessage } = require("../utils/telegram");
 
 class Printer extends Device {
   constructor(deviceConfig, mode$) {
@@ -22,7 +23,11 @@ class Printer extends Device {
         }).state
     );
 
-    this.mode$.next(currentProfile.mode);
+    if (currentProfile.mode != this.mode){
+      sendMessage(`Setting mode to: ${currentProfile.name}`)
+      this.mode$.next(currentProfile.mode);
+    }
+
   }
 }
 

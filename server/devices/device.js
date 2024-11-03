@@ -1,5 +1,6 @@
 const { ReplaySubject, timer } = require("rxjs");
 const { getDeviceState, setDevicePower } = require("../utils/shelly");
+const { sendMessage } = require("../utils/telegram");
 
 class Device {
   constructor(deviceConfig, mode$) {
@@ -63,12 +64,16 @@ class Device {
   }
 
   async turnOn() {
-    console.log(`Turn on ${this.name.toLowerCase()} at ${this.ipAddress}`);
+    const msg = `Turn on ${this.name.toLowerCase()} at ${this.ipAddress}`
+    console.log(msg);
+    sendMessage(msg);
     await setDevicePower(this.ipAddress, true);
   }
 
   async turnOff() {
-    console.log(`Turn off ${this.name.toLowerCase()} at ${this.ipAddress}`);
+    const msg = `Turn off ${this.name.toLowerCase()} at ${this.ipAddress}`
+    console.log(msg);
+    sendMessage(msg);
     await setDevicePower(this.ipAddress, false);
   }
 }
