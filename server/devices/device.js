@@ -35,11 +35,9 @@ class Device {
       switch (expectedState) {
         case "on":
           this.turnOn();
-          // Sleep for 2 seconds to allow the fan to turn on
           break;
         case "off":
           this.turnOff();
-          // Sleep for 2 seconds to allow the fan to turn off
           break;
       }
     }

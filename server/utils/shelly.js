@@ -12,7 +12,9 @@ const setDevicePower = async (ipAddress, state) => {
 const getDeviceState = async (ipAddress) => {
   try {
     const response = await fetch(`http://${ipAddress}/rpc/Switch.GetStatus?id=0`);
-    return response.json();
+    const jsonResp = await response.json();
+    console.log(jsonResp);
+    return jsonResp;
   } catch (err) {
     console.error(err);
   }
