@@ -1,0 +1,110 @@
+{
+    "devices": [
+        {
+            "name": "3d Printer",
+            "type": "printer",
+            "ipAddress": "192.168.1.121",
+            "statePollInterval": 20000,
+            "operatingProfiles": [
+                {
+                    "name": "Ready to Print",
+                    "mode": "rtp",
+                    "state": "idle"
+                },
+                {
+                    "name": "Printing",
+                    "mode": "p",
+                    "state": "on"
+                },
+                {
+                    "name": "Error",
+                    "mode": "e",
+                    "state": "off"
+                }
+            ],
+            "stateProfiles": [
+                {
+                    "name": "On",
+                    "state": "on",
+                    "watts": ">10"
+                },
+                {
+                    "name": "Off",
+                    "state": "off",
+                    "watts": "<1"
+                },
+                {
+                    "name": "Idle",
+                    "state": "idle",
+                    "watts": "1-10"
+                }
+            ]
+        },
+        {
+            "name": "Exhaust Fan",
+            "type": "fan",
+            "ipAddress": "192.168.1.53",
+            "statePollInterval": 10000,
+            "operatingProfiles": [
+                {
+                    "name": "Ready to Print",
+                    "mode": "rtp",
+                    "state": "off"
+                },
+                {
+                    "name": "Printing",
+                    "mode": "p",
+                    "state": "on"
+                },
+                {
+                    "name": "Error",
+                    "mode": "e",
+                    "state": "off"
+                }
+            ],
+            "stateProfiles": [
+                {
+                    "name": "On",
+                    "state": "on"
+                },
+                {
+                    "name": "Off",
+                    "state": "off"
+                }
+            ]
+        },
+        {
+            "name": "Motherboard Fan",
+            "type": "fan",
+            "ipAddress": "192.168.1.226",
+            "statePollInterval": 10000,
+            "operatingProfiles": [
+                {
+                    "name": "Ready to Print",
+                    "mode": "rtp",
+                    "state": "off"
+                },
+                {
+                    "name": "Printing",
+                    "mode": "p",
+                    "state": "on"
+                },
+                {
+                    "name": "Error",
+                    "mode": "e",
+                    "state": "off"
+                }
+            ],
+            "stateProfiles": [
+                {
+                    "name": "On",
+                    "state": "on"
+                },
+                {
+                    "name": "Off",
+                    "state": "off"
+                }
+            ]
+        }
+    ]
+}
