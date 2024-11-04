@@ -7,7 +7,11 @@ class TelegramTransport extends Transport {
   }
 
   log(info, callback) {
-    sendMessage(info[Symbol.for("message")]);
+    try {
+      sendMessage(info[Symbol.for("message")]);
+    } catch (error) {
+      console.error("Error sending message to telegram", error);
+    }
     callback(null, true);
   }
 }

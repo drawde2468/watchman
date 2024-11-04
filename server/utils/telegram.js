@@ -14,18 +14,15 @@ const sendMessage = async (text) => {
     text,
   };
 
-  try {
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    });
-    return response.json();
-  } catch (err) {
-    console.error(err);
-  }
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  });
+
+  return await response.json();
 };
 
 exports.sendMessage = sendMessage;
