@@ -33,7 +33,7 @@ class Fan extends Device {
 
     const deviceState = await getDeviceState(this.ipAddress);
     const devicePower = deviceState.output ? "on" : "off";
-    self.logger.debug(`${this.name} at ${this.ipAddress} current power set to: ${devicePower}`);
+    this.logger.debug(`${this.name} at ${this.ipAddress} current power set to: ${devicePower}`);
 
     const actualState = this.stateProfiles.find((stateProfile) => stateProfile.state === devicePower).state;
 
