@@ -25,4 +25,4 @@ const sendMessage = async (text) => {
   return await response.json();
 };
 
-exports.sendMessage = sendMessage;
+module.exports = sendMessage;

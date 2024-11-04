@@ -1,5 +1,5 @@
 const Transport = require("winston-transport");
-const { sendMessage } = require("../utils/telegram");
+const sendMessage = require("../utils/telegram");
 
 class TelegramTransport extends Transport {
   constructor(opts) {
