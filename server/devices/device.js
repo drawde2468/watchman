@@ -1,4 +1,5 @@
 const { getDeviceState, setDevicePower } = require("../utils/shelly");
+const { timer } = require("rxjs");
 const logger = require("../logging/logger");
 
 class Device {
@@ -71,12 +72,12 @@ class Device {
   }
 
   async turnOn() {
-    this.logger.debug(`Set ${this.name.toLowerCase()} power on at ${this.ipAddress}`);
+    this.logger.info(`Set ${this.name.toLowerCase()} power on at ${this.ipAddress}`);
     await setDevicePower(this.ipAddress, true);
   }
 
   async turnOff() {
-    this.logger.debug(`Set ${this.name.toLowerCase()} power off at ${this.ipAddress}`);
+    this.logger.info(`Set ${this.name.toLowerCase()} power off at ${this.ipAddress}`);
     await setDevicePower(this.ipAddress, false);
   }
 
