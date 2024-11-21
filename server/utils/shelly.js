@@ -1,22 +1,25 @@
+const logger = require("../logging/logger");
+
 const setDevicePower = async (ipAddress, state) => {
   try {
-    const response = await fetch(`http://${ipAddress}/rpc/Switch.Set?id=0&on=${state ? "true" : "false"}`);
+    const url = `http://${ipAddress}/rpc/Switch.Set?id=0&on=${state ? "true" : "false"}`;
+    const response = await fetch(url);
     const jsonResp = await response.json();
-    console.log(jsonResp);
+    logger.debug(`Response from '${url}':`, jsonResp);
     return jsonResp;
   } catch (err) {
-    console.error(err);
+    logger.error(`Error occured while setting device power for ${ipAddress}`, err);
   }
 };
 
 const getDeviceState = async (ipAddress) => {
   try {
-    const response = await fetch(`http://${ipAddress}/rpc/Switch.GetStatus?id=0`);
+    const url = `http://${ipAddress}/rpc/Switch.GetStatus?id=0`;
+    const response = await fetch(url);
     const jsonResp = await response.json();
-    console.log(jsonResp);
     return jsonResp;
   } catch (err) {
-    console.error(err);
+    logger.error(`Error occured while getting device status for ${ipAddress}`, err);
   }
 };
 
